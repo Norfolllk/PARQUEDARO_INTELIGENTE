@@ -13,7 +13,7 @@ import com.krakedev.parqueadero.modelo.TicketCobro;
 import com.krakedev.parqueadero.servicios.ServicioCobro;
 
 @RestController
-@RequestMapping("/cobros")
+@RequestMapping("/{cobros}")
 public class CobroController {
 
     private final ServicioCobro servicioCobro;
@@ -33,12 +33,12 @@ public class CobroController {
         }
     }
 
-    @GetMapping("/total")
+    @GetMapping("/{total}")
     public double calcularTotalRecaudado() {
         return servicioCobro.calcularTotalRecaudado();
     }
 
-    @GetMapping("/historial")
+    @GetMapping("/{historial}")
     public ArrayList<TicketCobro> listarTickets() {
         return servicioCobro.listarTickets();
     }

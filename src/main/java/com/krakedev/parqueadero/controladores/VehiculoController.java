@@ -16,7 +16,7 @@ import com.krakedev.parqueadero.modelo.Vehiculo;
 import com.krakedev.parqueadero.servicios.ServicioVehiculos;
 
 @RestController
-@RequestMapping("/vehiculos")
+@RequestMapping("/{vehiculos}")
 public class VehiculoController {
 
     private final ServicioVehiculos servicioVehiculos;
@@ -25,7 +25,7 @@ public class VehiculoController {
         this.servicioVehiculos = servicioVehiculos;
     }
 
-    @PostMapping("/auto")
+    @PostMapping("/{auto}")
     public ResponseEntity<String> ingresarAuto(@RequestBody Auto auto) {
         boolean ingresado = servicioVehiculos.ingresarVehiculo(auto);
 
@@ -36,7 +36,7 @@ public class VehiculoController {
         }
     }
 
-    @PostMapping("/moto")
+    @PostMapping("/{moto}")
     public ResponseEntity<String> ingresarMoto(@RequestBody Motocicleta moto) {
         boolean ingresado = servicioVehiculos.ingresarVehiculo(moto);
 
